@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/agreement/addAccident}" th:object="${accidentResources}" method="post">
+
+    <label>Insured: </label>
+    <select name="insured" th:field="*{insured}">
+        <option th:each="insured : ${insuredUsers.usersResources.entrySet()}"
+                th:value="${insured}" th:text="${insured}"></option>
+    </select>
+    <br>
+
+    <h2>Insurance detail</h2>
+
+    <label for="formation">Date of formation</label>
+    <input type="datetime-local" id="formation" th:field="*{dateOfFormation}">
+    <p th:if="${#fields.hasErrors('dateOfFormation')}" th:errors="*{dateOfFormation}"></p><br>
+    <br>
+
+    <label for="start">Start date</label>
+    <input type="datetime-local" id="start" th:field="*{start}"/>
+    <p th:if="${#fields.hasErrors('start')}" th:errors="*{start}"></p><br>
+    <br>
+
+    <label for="end">Expired date</label>
+    <input type="datetime-local" id="end" th:field="*{end}"/>
+    <p th:if="${#fields.hasErrors('end')}" th:errors="*{end}"></p><br>
+    <br>
+
+    <label>Type of purpose: </label>
+    <select name="purpose" th:field="*{purpose}">
+        <option th:each="purpose : ${T(sk.stuba.fei.oop.springinsurances.agreement.life.AccidentEnum).values()}"
+                th:value="${purpose}" th:text="${purpose}"></option>
+    </select>
+    <br>
+
+    <label for="isEU">Is EU</label>
+    <input type="checkbox" id="isEU" th:field="*{EU}"/>
+    <br>
+
+    <label for="permanentConsequences">Amount of permanent consequences</label>
+    <input type="text" id="permanentConsequences" th:field="*{permanentConsequences}"/>
+    <p th:if="${#fields.hasErrors('permanentConsequences')}" th:errors="*{permanentConsequences}"></p><br>
+    <br>
+
+    <label for=" amountOfInsuranceIndemnity">Amount of insurance indemnity</label>
+    <input type="text" id=" amountOfInsuranceIndemnity" th:field="*{amountOfInsuranceIndemnity}"/>
+    <p th:if="${#fields.hasErrors('amountOfInsuranceIndemnity')}" th:errors="*{amountOfInsuranceIndemnity}"></p><br>
+    <br>
+
+    <label for="amountOfTheMonthlyPayment">Amount of the monthly payment</label>
+    <input type="text" id="amountOfTheMonthlyPayment" th:field="*{amountOfTheMonthlyPayment}"/>
+    <p th:if="${#fields.hasErrors('amountOfTheMonthlyPayment')}" th:errors="*{amountOfTheMonthlyPayment}"></p><br>
+    <br>
+
+    <input type="submit" value="Add accident">
+
+</form>
+
+
+</body>
+</html>

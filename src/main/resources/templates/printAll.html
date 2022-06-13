@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<tr th:each="user: ${users.entrySet()}">
+    <td th:text="${user.key}"></td>
+    <td th:text="${user.value.name}"></td>
+    <td th:text="${user.value.surname}"></td>
+    <td><a th:href="@{'/edit/' + ${user.key}}">Edit</a></td>
+    <td><a th:href="@{'/id/' + ${user.key}}">Print</a></td>
+    <br>
+</tr>
+
+<td><a th:href="@{'/register'}">Register</a></td>
+
+</body>
+</html>

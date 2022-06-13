@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/edit}" th:object="${user}" method="post">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" th:field="*{name}"/>
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p><br>
+    <br>
+    <label for="surname">Surname</label>
+    <input type="text" id="surname" th:field="*{surname}">
+    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p><br>
+
+    <br>
+
+    <label for="identificationNumber">Born number</label>
+    <input type="text" id="identificationNumber" th:field="*{identificationNumber}">
+    <p th:if="${#fields.hasErrors('identificationNumber')}" th:errors="*{identificationNumber}"></p><br>
+
+    <br>
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email" th:field="*{email}">
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
+
+    <br>
+
+    <label for="postNumber">Post Number</label>
+    <input type="text" id="postNumber" th:field="*{address.postNumber}">
+    <p th:if="${#fields.hasErrors('address.postNumber')}" th:errors="*{address.postNumber}"></p>
+    <br>
+
+    <label for="cityNumber">City Number</label>
+    <input type="text" id="cityNumber" th:field="*{address.cityName}">
+    <p th:if="${#fields.hasErrors('address.cityName')}" th:errors="*{address.cityName}"></p>
+    <br>
+
+    <label for="streetNumber">Street Number</label>
+    <input type="text" id="streetNumber" th:field="*{address.streetName}">
+    <p th:if="${#fields.hasErrors('address.streetName')}" th:errors="*{address.streetName}"></p>
+
+    <br>
+
+    <label for="houseNumber">House number</label>
+    <input type="text" id="houseNumber" th:field="*{address.houseNumber}">
+    <p th:if="${#fields.hasErrors('address.houseNumber')}" th:errors="*{address.houseNumber}"></p>
+    <br>
+
+    <label for="correspondencePostNumber">Post Number</label>
+    <input type="text" id="correspondencePostNumber" th:field="*{correspondenceAddress.postNumber}">
+    <!--    <p th:if="${#fields.hasErrors('correspondenceAddress.postNumber')}" th:errors="*{correspondenceAddress.postNumber}"></p><br>-->
+    <br>
+
+
+    <label for="correspondenceCityNumber">City Number</label>
+    <input type="text" id="correspondenceCityNumber" th:field="*{correspondenceAddress.cityName}">
+    <!--    <p th:if="${#fields.hasErrors('correspondenceAddress.cityName')}" th:errors="*{correspondenceAddress.cityName}"></p><br>-->
+    <br>
+
+    <label for="correspondenceStreetNumber">Street Number</label>
+    <input type="text" id="correspondenceStreetNumber" th:field="*{correspondenceAddress.streetName}">
+    <!--    <p th:if="${#fields.hasErrors('correspondenceAddress.streetName')}" th:errors="*{correspondenceAddress.streetName}"></p><br>-->
+    <br>
+
+    <label for="correspondenceHouseNumber">House Number</label>
+    <input type="text" id="correspondenceHouseNumber" th:field="*{correspondenceAddress.houseNumber}">
+    <!--    <p th:if="${#fields.hasErrors('correspondenceAddress.houseNumber')}" th:errors="*{correspondenceAddress.houseNumber}"></p><br>-->
+    <br>
+
+    <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

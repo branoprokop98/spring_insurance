@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Home Insurance</h2>
+    <p th:text="${home.address.postNumber}"></p>
+    <p th:text="${home.address.cityName}"></p>
+    <p th:text="${home.address.streetName}"></p>
+    <p th:text="${home.address.houseNumber}"></p>
+    <h2>Insurance detail</h2>
+    <p th:text="${home.dateOfFormation}"></p>
+    <p th:text="${home.start}"></p>
+    <p th:text="${home.end}"></p>
+    <p th:text="${home.propertyType}"></p>
+    <p th:text="${home.valueOfProperty}"></p>
+    <p th:text="${home.valueOfDevices}"></p>
+    <p th:text="${home.amountOfInsuranceIndemnity}"></p>
+    <p th:text="${home.amountOfTheMonthlyPayment}"></p>
+
+</body>
+</html>

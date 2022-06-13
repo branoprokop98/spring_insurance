@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Travel Insurance</h2>
+<p th:text="${travel.insured.name}"></p>
+<p th:text="${travel.insured.surname}"></p>
+<p th:text="${travel.insured.identificationNumber}"></p>
+<p th:text="${travel.insured.email}"></p>
+<br>
+<p th:text="${travel.insured.address.cityName}"></p>
+<p th:text="${travel.insured.address.streetName}"></p>
+<p th:text="${travel.insured.address.postNumber}"></p>
+<p th:text="${travel.insured.address.houseNumber}"></p>
+<br>
+<p th:text="${travel.insured.correspondenceAddress.cityName}"></p>
+<p th:text="${travel.insured.correspondenceAddress.streetName}"></p>
+<p th:text="${travel.insured.correspondenceAddress.postNumber}"></p>
+<p th:text="${travel.insured.correspondenceAddress.houseNumber}"></p>
+<br>
+<h2>Insurance detail</h2>
+<p th:text="${travel.dead}"></p>
+<p th:text="${travel.validity}"></p>
+<p th:text="${travel.dateOfFormation}"></p>
+<p th:text="${travel.start}"></p>
+<p th:text="${travel.end}"></p>
+<p th:text="${travel.reparation}"></p>
+<p th:text="${travel.amountOfInsuranceIndemnity}"></p>
+<p th:text="${travel.amountOfTheMonthlyPayment}"></p>
+</body>
+</html>

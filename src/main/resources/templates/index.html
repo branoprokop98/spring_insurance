@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print all insurances</title>
+</head>
+<body>
+
+<h2>Insurer detail</h2>
+<p th:text="${users.uid}"></p>
+<p th:text="${users.name}"></p>
+<p th:text="${users.surname}"></p>
+<p th:text="${users.identificationNumber}"></p>
+<p th:text="${users.email}"></p>
+<br>
+<p th:text="${users.address.postNumber}"></p>
+<p th:text="${users.address.cityName}"></p>
+<p th:text="${users.address.streetName}"></p>
+<p th:text="${users.address.houseNumber}"></p>
+<br>
+<p th:text="${users.correspondenceAddress.postNumber}"></p>
+<p th:text="${users.correspondenceAddress.cityName}"></p>
+<p th:text="${users.correspondenceAddress.streetName}"></p>
+<p th:text="${users.correspondenceAddress.houseNumber}"></p>
+
+<h2>Signed agreements</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Formation date</th>
+        <th>Start date</th>
+        <th>Expire date</th>
+        <th>Monthly payment</th>
+    </tr>
+    <tr th:each="user: ${users.getListResources()}">
+        <td style="text-align: center" th:text="${user.getAgreementID()}"></td>
+        <td style="text-align: center" th:text="${user.dateOfFormation}"></td>
+        <td style="text-align: center" th:text="${user.start}"></td>
+        <td style="text-align: center" th:text="${user.end}"></td>
+        <td style="text-align: center" th:text="${user.amountOfTheMonthlyPayment}"></td>
+        <td><a th:href="@{'/agreement/detail/'+ ${user.getInsurer().uid} +'/'+ ${user.getAgreementID()}}">Detail</a></td>
+        <td><a th:href="@{'/agreement/edit/'+ ${user.getInsurer().uid} +'/'+ ${user.getAgreementID()}}">Edit</a></td>
+        <br>
+    </tr>
+</table>
+<br>
+
+
+<td><a th:href="@{'/agreement/addAccident/' + ${users.uid}}">Add accident insurance</a></td><br>
+<td><a th:href="@{'/agreement/addTravel/' + ${users.uid}}">Add travel insurance</a></td><br>
+<td><a th:href="@{'/agreement/addFlat/' + ${users.uid}}">Add flat insurance</a></td><br>
+<td><a th:href="@{'/agreement/addHome/' + ${users.uid}}">Add home insurance</a></td><br>
+<br>
+
+<td><a th:href="@{'/edit/' + ${users.uid}}">Edit insurer</a></td>
+
+
+</body>
+</html>

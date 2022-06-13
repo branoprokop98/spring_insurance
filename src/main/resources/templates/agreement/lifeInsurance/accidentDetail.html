@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/}" th:object="${accident}">
+    <h2>Accident Insurance</h2>
+    <p th:text="${accident.insured.name}"></p>
+    <p th:text="${accident.insured.surname}"></p>
+    <p th:text="${accident.insured.identificationNumber}"></p>
+    <p th:text="${accident.insured.email}"></p>
+    <br>
+    <p th:text="${accident.insured.address.cityName}"></p>
+    <p th:text="${accident.insured.address.streetName}"></p>
+    <p th:text="${accident.insured.address.postNumber}"></p>
+    <p th:text="${accident.insured.address.houseNumber}"></p>
+    <br>
+    <p th:text="${accident.insured.correspondenceAddress.cityName}"></p>
+    <p th:text="${accident.insured.correspondenceAddress.streetName}"></p>
+    <p th:text="${accident.insured.correspondenceAddress.postNumber}"></p>
+    <p th:text="${accident.insured.correspondenceAddress.houseNumber}"></p>
+    <br>
+    <h2>Insurance detail</h2>
+    <p th:text="${accident.EU}"></p>
+    <p th:text="${accident.purpose}"></p>
+    <p th:text="${accident.dateOfFormation}"></p>
+    <p th:text="${accident.start}"></p>
+    <p th:text="${accident.end}"></p>
+    <p th:text="${accident.permanentConsequences}"></p>
+    <p th:text="${accident.amountOfInsuranceIndemnity}"></p>
+    <p th:text="${accident.amountOfTheMonthlyPayment}"></p>
+</form>
+
+</body>
+</html>

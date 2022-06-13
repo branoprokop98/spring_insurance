@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/agreement/addFlat}" th:object="${flatResource}" method="post">
+
+    <label for="postNumber">Post number</label>
+    <input type="text" id="postNumber" th:field="*{address.postNumber}"/>
+    <p th:if="${#fields.hasErrors('address.postNumber')}" th:errors="*{address.postNumber}"></p><br>
+    <br>
+
+    <label for="cityName">City name</label>
+    <input type="text" id="cityName" th:field="*{address.cityName}"/>
+    <p th:if="${#fields.hasErrors('address.cityName')}" th:errors="*{address.cityName}"></p><br>
+    <br>
+
+    <label for="streetName">Street name</label>
+    <input type="text" id="streetName" th:field="*{address.streetName}"/>
+    <p th:if="${#fields.hasErrors('address.streetName')}" th:errors="*{address.streetName}"></p><br>
+    <br>
+
+    <label for="houseNumber">House number</label>
+    <input type="text" id="houseNumber" th:field="*{address.houseNumber}"/>
+    <p th:if="${#fields.hasErrors('address.houseNumber')}" th:errors="*{address.houseNumber}"></p><br>
+    <br>
+
+    <h2>Insurance detail</h2>
+
+    <label for="formation">Date of formation</label>
+    <input type="datetime-local" id="formation" th:field="*{dateOfFormation}">
+    <p th:if="${#fields.hasErrors('dateOfFormation')}" th:errors="*{dateOfFormation}"></p><br>
+    <br>
+
+    <label for="start">Start date</label>
+    <input type="datetime-local" id="start" th:field="*{start}"/>
+    <p th:if="${#fields.hasErrors('start')}" th:errors="*{start}"></p><br>
+    <br>
+
+    <label for="end">Expired date</label>
+    <input type="datetime-local" id="end" th:field="*{end}"/>
+    <p th:if="${#fields.hasErrors('end')}" th:errors="*{end}"></p><br>
+    <br>
+
+    <label>Type of flats: </label>
+    <select name="flats" th:field="*{flats}">
+        <option th:each="flats : ${T(sk.stuba.fei.oop.springinsurances.agreement.nonlife.FlatEnum).values()}"
+                th:value="${flats}" th:text="${flats}"></option>
+    </select><br>
+    <br>
+
+    <label for="isEU">Is garage</label>
+    <input type="checkbox" id="isEU" th:field="*{garage}"/><br>
+    <p th:if="${#fields.hasErrors('garage')}" th:errors="*{garage}"></p><br>
+    <br>
+
+    <label for="valueOfProperty">Value of property</label>
+    <input type="text" id="valueOfProperty" th:field="*{valueOfProperty}"/><br>
+    <p th:if="${#fields.hasErrors('valueOfProperty')}" th:errors="*{valueOfProperty}"></p><br>
+
+    <br>
+
+    <label for="valueOfDevices">Value of devices</label>
+    <input type="text" id="valueOfDevices" th:field="*{valueOfDevices}"/><br>
+    <p th:if="${#fields.hasErrors('valueOfDevices')}" th:errors="*{valueOfDevices}"></p><br>
+    <br>
+
+
+    <label for=" amountOfInsuranceIndemnity">Amount of insurance indemnity</label>
+    <input type="text" id=" amountOfInsuranceIndemnity" th:field="*{amountOfInsuranceIndemnity}"/><br>
+    <p th:if="${#fields.hasErrors('amountOfInsuranceIndemnity')}" th:errors="*{amountOfInsuranceIndemnity}"></p><br>
+    <br>
+
+    <label for="amountOfTheMonthlyPayment">Amount of the monthly payment</label>
+    <input type="text" id="amountOfTheMonthlyPayment" th:field="*{amountOfTheMonthlyPayment}"/><br>
+    <p th:if="${#fields.hasErrors('amountOfTheMonthlyPayment')}" th:errors="*{amountOfTheMonthlyPayment}"></p><br>
+    <br>
+
+    <input type="submit" value="Add accident">
+</form>
+</body>
+</html>
